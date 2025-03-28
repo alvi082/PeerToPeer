@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/CSS/ShoppersProfileInfo.css">
+</head>
+<body>
+<div class="settings-container">
+    <aside class="settings-sidebar">
+        <nav>
+            <a href="#profile" class="active"><i class="fas fa-user"></i>Profile</a>
+            <a href="#payment"><i class="fas fa-credit-card"></i>Payment Methods</a>
+            <a href="#preferences"><i class="fas fa-cog"></i>Preferences</a>
+            <a href="#kyc"><i class="fas fa-credit-card"></i>KYC</a>
+
+        </nav>
+    </aside>
+
+    <main class="settings-main">
+        <!-- Profile Section -->
+        <section id="profile" class="settings-section active">
+            <h2 class="section-title">Personal Information</h2>
+            <form class="professional-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Full Name <span class="required">*</span></label>
+                        <input type="text" required>
+                        <div class="form-note">Legal name as per government ID</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address <span class="required">*</span></label>
+                        <input type="email" required>
+                        <div class="form-note">Used for account communications</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <div class="input-group">
+                            <select class="country-code">
+                                <option>+880</option>
+                                <option>+1</option>
+                                <option>+91</option>
+                            </select>
+                            <input type="tel" pattern="[0-9]{10}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Shipping Address <span class="required">*</span></label>
+                        <div class="address-group">
+                            <input type="text" placeholder="Street address" required>
+                            <div class="form-row">
+                                <input type="text" placeholder="City" required>
+                                <input type="text" placeholder="Postal code" required>
+                            </div>
+                            <select required>
+                                <option value="">Select Country</option>
+                                <option>Bangladesh</option>
+                                <option>India</option>
+                                <option>USA</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-save"></i> Update Profile
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Payment Methods Section -->
+        <section id="payment" class="settings-section">
+            <div class="payment-header">
+                <h2 class="section-title">Payment Management</h2>
+                <button id="addPaymentBtn" class="btn-primary">
+                    <i class="fas fa-plus"></i> Add Payment Method
+                </button>
+            </div>
+
+            <div class="payment-cards">
+                <div class="payment-method">
+                    <div class="payment-brand">
+                        <i class="fab fa-cc-visa"></i>
+                        <span class="card-type">Visa</span>
+                    </div>
+                    <div class="payment-details">
+                        <span class="card-number">•••• 4512</span>
+                        <div class="card-info">
+                            <span>Exp: 12/25</span>
+                            <span>CVV: •••</span>
+                        </div>
+                    </div>
+                    <div class="payment-actions">
+                        <button class="icon-btn"><i class="fas fa-edit"></i></button>
+                        <button class="icon-btn danger"><i class="fas fa-trash"></i></button>
+                    </div>
+                    <div class="payment-badge">
+                        <i class="fas fa-lock"></i> Secured
+                    </div>
+                </div>
+            </div>
+
+            <div class="security-note">
+                <i class="fas fa-shield-alt"></i>
+                All payment details are encrypted with AES-256 and PCI DSS compliant
+            </div>
+        </section>
+
+        <!-- Payment Method Modal -->
+        <div class="modal-overlay hidden" id="paymentModal">
+            <div class="modal-content">
+                <h3>Add Payment Method</h3>
+                <form class="payment-form">
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <input type="text" class="card-number" pattern="[\d ]{16,19}">
+                        <div class="card-icons">
+                            <i class="fab fa-cc-visa"></i>
+                            <i class="fab fa-cc-mastercard"></i>
+                            <i class="fab fa-cc-amex"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Expiration Date</label>
+                            <input type="month" min="2023-08">
+                        </div>
+                        <div class="form-group">
+                            <label>CVV</label>
+                            <input type="text" pattern="\d{3}" class="cvv-input">
+                            <i class="fas fa-question-circle" title="3-digit security code"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Cardholder Name</label>
+                        <input type="text" placeholder="As shown on card">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="cancelPayment">Cancel</button>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-lock"></i> Save Securely
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Preferences Section -->
+        <section id="preferences" class="settings-section">
+            <h2 class="section-title">Account Preferences</h2>
+            <div class="preferences-grid">
+                <div class="preference-card">
+                    <h3><i class="fas fa-bell"></i> Notifications</h3>
+                    <div class="switch-group">
+                        <label>Email Notifications
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </label>
+                        <label>SMS Notifications
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="preference-card">
+                    <h3><i class="fas fa-globe"></i> Language & Region</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Language</label>
+                            <select class="modern-select">
+                                <option>English</option>
+                                <option>Bangla</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Timezone</label>
+                            <select class="modern-select">
+                                <option>(GMT+6) Dhaka</option>
+                                <option>(GMT+5:30) India</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="preference-card">
+                    <h3><i class="fas fa-wallet"></i> Payment Preferences</h3>
+                    <div class="form-group">
+                        <label>Default Payment Method</label>
+                        <select class="modern-select">
+                            <option>Visa •••• 4512</option>
+                            <option>Mastercard •••• 6789</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kyc" class="settings-section">
+            <div class="kyc-container">
+                <div class="verification-header">
+                    <h2 class="section-title"><i class="fas fa-shield-alt"></i> Identity Verification</h2>
+                    <div class="verification-status pending">
+                        <i class="fas fa-clock"></i>
+                        Status: Pending
+                    </div>
+                </div>
+
+                <div class="kyc-progress">
+                    <div class="progress-step active">
+                        <span>1</span>
+                        Document Upload
+                    </div>
+                    <div class="progress-step">
+                        <span>2</span>
+                        Verification
+                    </div>
+                    <div class="progress-step">
+                        <span>3</span>
+                        Completion
+                    </div>
+                </div>
+
+                <form class="kyc-form">
+                    <div class="document-upload">
+                        <div class="upload-card">
+                            <div class="upload-header">
+                                <i class="fas fa-passport"></i>
+                                <h3>Government ID</h3>
+                            </div>
+                            <div class="upload-box" id="idUpload">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Upload PDF or image file</p>
+                                <input type="file" accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+                        </div>
+
+                        <div class="upload-card">
+                            <div class="upload-header">
+                                <i class="fas fa-home"></i>
+                                <h3>Proof of Address</h3>
+                            </div>
+                            <div class="upload-box" id="addressUpload">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Upload recent utility bill</p>
+                                <input type="file" accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="age-verification">
+                        <h3><i class="fas fa-birthday-cake"></i> Date of Birth</h3>
+                        <input type="date" required>
+                    </div>
+
+                    <div class="security-note">
+                        <i class="fas fa-lock"></i>
+                        Documents are encrypted using AES-256 encryption
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Submit Verification</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<script src="/JavaScript/ShoppersProfileInfo.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

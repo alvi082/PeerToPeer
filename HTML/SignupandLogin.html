@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Auth Design</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/CSS/SignupandLogin.css">
+
+</head>
+<body>
+<div class="auth-container">
+  <div class="decorative-line"></div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchForm('login')">Login</button>
+    <button class="tab" onclick="switchForm('signup')">Sign Up</button>
+  </div>
+
+  <!-- Login Form -->
+  <form class="auth-form active" id="loginForm">
+    <div class="input-group">
+      <label class="input-label">Email or Phone</label>
+      <input type="text" class="input-field" placeholder="Enter your email or phone" required>
+    </div>
+
+    <div class="input-group">
+      <label class="input-label">Password</label>
+      <input type="password" class="input-field" placeholder="••••••••" required>
+    </div>
+
+    <button type="submit" class="btn-primary"  onclick="window.location.href='ShoppersPostOrder.html';">Sign In</button>
+
+    <div class="forgot-password">
+      <a href="#" class="forgot-link" onclick="showForgotPassword()">Forgot Password?</a>
+    </div>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span class="divider-text">OR CONTINUE WITH</span>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="social-auth">
+      <div class="social-buttons">
+        <button type="button" class="social-btn google">
+          <i class="fab fa-google"></i>
+          Google
+        </button>
+        <button type="button" class="social-btn facebook">
+          <i class="fab fa-facebook-f"></i>
+          Facebook
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <!-- Signup Form -->
+  <form class="auth-form" id="signupForm">
+    <div class="input-group">
+      <label class="input-label">Full Name</label>
+      <input type="text" class="input-field" placeholder="Enter your full name" required>
+    </div>
+
+    <div class="input-group">
+      <label class="input-label">Email</label>
+      <input type="email" class="input-field" placeholder="Enter your email" required>
+    </div>
+
+    <div class="input-group">
+      <label class="input-label">Password</label>
+      <input type="password" class="input-field" placeholder="••••••••" required>
+    </div>
+
+    <button type="submit" class="btn-primary">Create Account</button>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span class="divider-text">OR SIGN UP WITH</span>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="social-auth">
+      <div class="social-buttons">
+        <button type="button" class="social-btn google">
+          <i class="fab fa-google"></i>
+          Google
+        </button>
+        <button type="button" class="social-btn facebook">
+          <i class="fab fa-facebook-f"></i>
+          Facebook
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script src="/JavaScript/SignupandLogin.js"></script>
+</body>
+</html>

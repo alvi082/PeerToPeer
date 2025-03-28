@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeliverEase - Delivery Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/CSS/ShoppersHome.css">
+</head>
+<body>
+<!-- Header -->
+<header class="header">
+    <nav class="navbar">
+        <div class="logo">DeliverEase</div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <div class="nav-links">
+            <a href="#home" class="active" onclick="showPage('home')">Home</a>
+            <a href="#post-order" onclick="showPage('postOrder')">Post an Order</a>
+            <a href="./ShoppersProfileInfo.html">Profile</a>
+            <a href="#login">Login</a>
+        </div>
+    </nav>
+</header>
+
+<!-- Home Page Content -->
+<main class="main-container" id="homePage">
+    <section class="home-content">
+        <h2 class="section-title">Recently Completed Deliveries</h2>
+
+        <div class="deliveries-grid">
+            <!-- Delivery Card 1 -->
+            <div class="delivery-card">
+                <div class="card-image">
+                    <div class="card-badge">Electronics</div>
+                    <i class="fas fa-laptop fa-3x"></i>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Laptop Delivery</h3>
+                    <p class="card-details">
+                        <strong>From:</strong> San Francisco<br>
+                        <strong>To:</strong> New York<br>
+                        <strong>Delivered in:</strong> 2 days
+                    </p>
+                    <div class="card-meta">
+                        <div class="card-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.8</span>
+                        </div>
+                        <div class="card-price">$145</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Delivery Card 2 -->
+            <div class="delivery-card">
+                <div class="card-image">
+                    <div class="card-badge">Fragile</div>
+                    <i class="fas fa-wine-glass fa-3x"></i>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Glassware Set</h3>
+                    <p class="card-details">
+                        <strong>From:</strong> Paris<br>
+                        <strong>To:</strong> Berlin<br>
+                        <strong>Delivered in:</strong> 3 days
+                    </p>
+                    <div class="card-meta">
+                        <div class="card-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.9</span>
+                        </div>
+                        <div class="card-price">$89</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Delivery Card 3 -->
+            <div class="delivery-card">
+                <div class="card-image">
+                    <div class="card-badge">Clothing</div>
+                    <i class="fas fa-tshirt fa-3x"></i>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Designer Clothes</h3>
+                    <p class="card-details">
+                        <strong>From:</strong> Milan<br>
+                        <strong>To:</strong> London<br>
+                        <strong>Delivered in:</strong> 1 day
+                    </p>
+                    <div class="card-meta">
+                        <div class="card-rating">
+                            <i class="fas fa-star"></i>
+                            <span>5.0</span>
+                        </div>
+                        <div class="card-price">$220</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more delivery cards as needed -->
+        </div>
+    </section>
+</main>
+
+<!-- Post Order Page Content (Same as previous implementation) -->
+<main class="main-container" id="postOrderPage">
+    <div class="post-order-container">
+        <div class="progress-steps">
+            <div class="step active">
+                <div class="step-circle">1</div>
+                <div class="step-title">Item Details</div>
+            </div>
+            <div class="step">
+                <div class="step-circle">2</div>
+                <div class="step-title">Locations</div>
+            </div>
+            <div class="step">
+                <div class="step-circle">3</div>
+                <div class="step-title">Preferences</div>
+            </div>
+            <div class="step">
+                <div class="step-circle">4</div>
+                <div class="step-title">Payment</div>
+            </div>
+        </div>
+
+        <!-- Item Details Section -->
+        <div class="form-section active" id="step1">
+            <h2>Item Details</h2>
+            <div class="form-grid">
+                <div class="input-group">
+                    <label>Item Name</label>
+                    <input type="text" required>
+                </div>
+                <div class="input-group">
+                    <label>Item Type</label>
+                    <select required>
+                        <option value="">Select type</option>
+                        <option>Electronics</option>
+                        <option>Clothing</option>
+                        <option>Fragile Items</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Quantity</label>
+                    <input type="number" min="1" required>
+                </div>
+                <div class="input-group">
+                    <label>Weight (kg)</label>
+                    <input type="number" step="0.1" required>
+                </div>
+                <div class="input-group">
+                    <label>Special Instructions</label>
+                    <textarea rows="3"></textarea>
+                </div>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="nextStep()">Next</button>
+            </div>
+        </div>
+
+        <!-- Locations Section -->
+        <div class="form-section" id="step2">
+            <h2>Locations</h2>
+            <div class="form-grid">
+                <div class="input-group">
+                    <label>Pick-up Address</label>
+                    <input type="text" required>
+                </div>
+                <div class="input-group">
+                    <label>Delivery Address</label>
+                    <input type="text" required>
+                </div>
+            </div>
+            <div class="map-preview">
+                <i class="fas fa-map-marker-alt"></i> Map Preview
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-secondary" onclick="prevStep()">Back</button>
+                <button class="btn btn-primary" onclick="nextStep()">Next</button>
+            </div>
+        </div>
+
+        <!-- Preferences Section -->
+        <div class="form-section" id="step3">
+            <h2>Preferences</h2>
+            <div class="form-grid">
+                <div class="input-group">
+                    <label>Delivery Speed</label>
+                    <select>
+                        <option>Standard (3-5 days)</option>
+                        <option>Express (24 hours)</option>
+                        <option>Scheduled</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Preferred Traveler Type</label>
+                    <select>
+                        <option>Any Traveler</option>
+                        <option>Fragile Specialist</option>
+                        <option>Express Courier</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Packaging Requirements</label>
+                    <textarea rows="2"></textarea>
+                </div>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-secondary" onclick="prevStep()">Back</button>
+                <button class="btn btn-primary" onclick="nextStep()">Next</button>
+            </div>
+        </div>
+
+        <!-- Payment Section -->
+        <div class="form-section" id="step4">
+            <h2>Payment & Confirmation</h2>
+            <div class="form-grid">
+                <div class="input-group">
+                    <label>Payment Method</label>
+                    <select required>
+                        <option>Credit/Debit Card</option>
+                        <option>Bank Transfer</option>
+                        <option>Mobile Banking</option>
+                    </select>
+                </div>
+                <div class="price-estimate">
+                    <h3>Estimated Total: $45.00</h3>
+                    <p>Includes service fee and insurance</p>
+                </div>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-secondary" onclick="prevStep()">Back</button>
+                <button class="btn btn-primary">Confirm & Pay</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer (Same as previous implementation) -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>About Us</h3>
+            <ul class="footer-links">
+                <li><a href="#">Company</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Support</h3>
+            <ul class="footer-links">
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">FAQs</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Legal</h3>
+            <ul class="footer-links">
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script src="/JavaScript/ShoppersHome.js"></script>
+</body>
+</html>
+
+
+
+
+
+
