@@ -587,3 +587,43 @@ input:checked + .slider:before {
 .loading i {
     animation: spin 1s linear infinite;
 }
+
+
+.btn-secondary {
+    width: 100px;
+    padding: 10px 15px;
+    background-color: #064af8;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+}
+
+.btn-secondary:hover {
+    background-color: #2f19f1;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.btn-secondary:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.btn-secondary::before {
+    content: "←";
+    font-size: 18px;
+}
+
+.btn-secondary:focus {
+    outline: 2px solid #92c1f3;
+    outline-offset: 2px;
+}

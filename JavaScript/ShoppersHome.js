@@ -1,4 +1,4 @@
-// Page Navigation
+
 function showPage(pageId) {
     document.getElementById('homePage').style.display = pageId === 'home' ? 'block' : 'none';
     document.getElementById('postOrderPage').style.display = pageId === 'postOrder' ? 'block' : 'none';
@@ -12,7 +12,7 @@ function showPage(pageId) {
     });
 }
 
-// Previous JavaScript implementations
+
 function toggleMenu() {
     const navLinks = document.querySelector('.nav-links');
     navLinks.classList.toggle('active');
@@ -21,7 +21,7 @@ function toggleMenu() {
 // Initialize with home page
 showPage('home');
 
-// Previous form step logic remains the same
+
 let currentStep = 1;
 const totalSteps = 4;
 
